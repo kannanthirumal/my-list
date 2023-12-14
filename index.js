@@ -76,7 +76,11 @@ function addItem(e) {
 /**function 2 - removeItem */
 function removeItem(e) {
   if (e.target.classList.contains("delete")) {
-    const removedItem = itemList.removeChild(e.target.parentElement);
+    if (confirm("Are you sure you want to delete this item?")) {
+      const removedItem = itemList.removeChild(e.target.parentElement);
+    } else {
+      return;
+    }
   }
 
   // Toggle visibility based on the list item presence
